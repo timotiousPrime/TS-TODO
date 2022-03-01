@@ -1,0 +1,32 @@
+{
+  "name": "TS-TODO",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timotiousPrime/TS-TODO.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timotiousPrime/TS-TODO/issues"
+  },
+  "homepage": "https://github.com/timotiousPrime/TS-TODO#readme",
+  "devDependencies": {
+    "css-loader": "^6.6.0",
+    "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "source-map-loader": "^3.0.1",
+    "ts-loader": "^9.2.6"
+  }
+}

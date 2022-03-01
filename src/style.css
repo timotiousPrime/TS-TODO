@@ -1,0 +1,307 @@
+/* @import '~font-awesome/css/font-awesome.css'; */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    /* overflow: hidden; */
+    background-color: rgba(34, 34, 34, 0.528);
+    color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 2.4rem;
+}
+
+button {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    height: 2.4rem;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+}
+
+#main-section {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+#todo-item-input,
+#list-creator-input {
+    height: 2.6rem;
+    flex: 1;
+    padding: 5px;
+    width: 75%;
+}
+
+#list-creator-btn,
+#add-todo-item-btn {
+    padding: 5px;
+    width: 20%;
+}
+
+#side-panel {
+    width: 35%;
+    height: 100%;
+    background-color: rgba(34, 34, 34, 0.768);
+    /* background: rgba(80, 79, 79, 0.288); */
+    opacity: 0.9;
+    padding: 10px;
+    text-align: center;
+}
+
+#side-panel-header {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.todo-list-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.list-header {
+    font-size: large;
+    position: sticky;
+    padding: 5px;
+    width: 100%;
+    padding: 0.8rem;
+    /* height: 10rem; */
+}
+
+.list-header > form {
+    margin: 0.4rem;
+    height: 1.8rem;
+    width: 100%;
+}
+
+.list-header > form > button {
+    margin: 0.4rem;
+    height: 2.2rem;
+    width: 12%;
+}
+
+.list-header > form > input {
+    margin: 0.4rem;
+    width: 80%;
+    height: 2.2rem;
+}
+
+.list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.4rem;
+    height: 2.4rem;
+    background-color: #aaaaaa33;
+    border-radius: 0.5rem;
+}
+
+.list:hover {
+    background-color: rgba(51, 51, 51, 0.2);
+    transform: scale(1.05);
+}
+
+.active {
+    border: rgb(27, 27, 27) solid 2px;
+    background-color: rgba(34, 34, 34, 0.234);
+}
+
+#main {
+    width: 65%;
+    height: 100%;
+    background: #fff;
+    padding: 0;
+    text-align: center;
+    background-color: rgb(34, 34, 34);
+}
+
+.items-list {
+    display: flex;
+    flex-direction: column;
+    overflow-x: scroll;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+.itemCardHoverOptions {
+    position: absolute;
+    right: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-self: flex-end;
+    align-items: center;
+    height: 3rem;
+    width: max-content;
+}
+
+.listHoverOptions {
+    position: absolute;
+    right: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-self: flex-end;
+    align-items: center;
+    height: 1.8rem;
+    width: max-content;
+    background: rgba(201, 201, 201, 0.9);
+}
+
+.itemCard {
+    margin: 0.4rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 0.5rem;
+    background: rgba(187, 187, 187, 0.117);
+    width: 90%;
+    height: 3rem;
+    list-style: none;
+}
+
+.itemCard > h3 {
+    color: #222;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.urgent {
+    color: #ff0000;
+    background-color: rgba(255, 0, 0, 0.89);
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #aaa;
+    background-color: rgba(0, 168, 0, 0.507);
+}
+
+.optionsBtn {
+    margin: 0.4rem;
+    height: 1.2rem;
+    fill: #f00;
+}
+
+#delete-btn > img:hover {
+    fill: #f00;
+    color: #f00;
+}
+
+.optionsBtn:hover {
+    transform: scale(1.4);
+}
+
+.itemCard-hover,
+.listCard-hover {
+    background: rgba(18, 113, 182, 0.3);
+    transform: scale(1.02);
+}
+
+.page-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    /* display: none; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.editor-card {
+    z-index: 21;
+    background-color: #eee;
+    width: 30rem;
+    display: flex;
+    border-radius: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+#item-header,
+#list-header {
+    font-size: 2rem;
+    padding: 0.4rem;
+}
+
+#item-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+label {
+    margin: 0.4rem;
+    width: 60%;
+    height: 2.6rem;
+    /* border: 1px solid #aaa; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#item-submit {
+    margin: 0.4rem;
+    width: 80%;
+    height: 2.6rem;
+    border: 1px solid #aaa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(18, 113, 182);
+    border-radius: 0.5rem;
+}
+
+#item-title,
+#item-due-date,
+#item-priority {
+    height: 1.6rem;
+    margin: 0.4rem;
+}
+
+footer {
+    bottom: 0;
+    width: 100%;
+    background: #333;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+}
