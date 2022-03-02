@@ -1,21 +1,21 @@
 export interface Item {
   title?: string;
   listId: string;
-  itemId: string;
-  urgent: boolean;
-  completed: boolean;
+  id: string;
+  isUrgent: boolean;
+  isCompleted: boolean;
   dueDate?: Date;
   createdDate: Date;
 }
 
 export class TodoItem {
-  private title: string = "";
-  private dueDate: Date;
-  private urgent: boolean = false;
+  title: string = "";
+  dueDate: Date;
+  urgent: boolean = false;
   private completed: boolean = false;
   readonly listId: string;
   readonly itemId = `item${new Date().getTime()}`;
-  private createdDate = new Date();
+  createdDate = new Date();
 
   constructor(
     listId: string,

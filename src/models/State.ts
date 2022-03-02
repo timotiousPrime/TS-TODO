@@ -37,9 +37,7 @@ export class State {
   }
 
   removeItem(itemId: string) {
-    this.todoItems = this.todoItems.filter(
-      (element) => element.itemId !== itemId
-    );
+    this.todoItems = this.todoItems.filter((element) => element.id !== itemId);
   }
 
   removeListItems(listId: string) {
@@ -57,7 +55,7 @@ export class State {
   }
 
   findItem(itemId: string): Item {
-    return this.todoItems.find((item) => item.itemId === itemId);
+    return this.todoItems.find((item) => item.id === itemId);
   }
 
   get activeList(): List {
