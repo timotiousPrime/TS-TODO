@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* @import '~font-awesome/css/font-awesome.css'; */\n\n* {\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n}\n\nbody {\n    font-family: 'Roboto Mono', monospace;\n    display: flex;\n    flex-direction: column;\n    height: 100vh;\n    justify-content: space-between;\n    /* overflow: hidden; */\n    background-color: rgba(34, 34, 34, 0.528);\n    color: #fff;\n}\n\nh1,\nh2,\nh3,\nh4 {\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n}\n\nh1 {\n    font-size: 2.4rem;\n}\n\nbutton {\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    font-size: 1.2rem;\n    padding: 0.5rem 1rem;\n    border: none;\n    border-radius: 0.5rem;\n    background-color: #fff;\n    cursor: pointer;\n    transition: all 0.2s ease-in-out;\n    height: 2.4rem;\n}\n\nheader {\n    background: #333;\n    color: #fff;\n    padding: 5px;\n    text-align: center;\n}\n\n#main-section {\n    display: flex;\n    flex-direction: row;\n    height: 100vh;\n}\n\n#todo-item-input,\n#list-creator-input {\n    height: 2.6rem;\n    flex: 1;\n    padding: 5px;\n    width: 75%;\n}\n\n#list-creator-btn,\n#add-todo-item-btn {\n    padding: 5px;\n    width: 20%;\n}\n\n#side-panel {\n    width: 35%;\n    height: 100%;\n    background-color: rgba(34, 34, 34, 0.768);\n    /* background: rgba(80, 79, 79, 0.288); */\n    opacity: 0.9;\n    padding: 10px;\n    text-align: center;\n}\n\n#side-panel-header {\n    font-size: 1.2rem;\n    font-weight: 500;\n    margin-bottom: 10px;\n}\n\n.todo-list-container {\n    display: flex;\n    flex-direction: column;\n    height: 100%;\n}\n\n.list-header {\n    font-size: large;\n    position: sticky;\n    padding: 5px;\n    width: 100%;\n    padding: 0.8rem;\n    /* height: 10rem; */\n}\n\n.list-header > form {\n    margin: 0.4rem;\n    height: 1.8rem;\n    width: 100%;\n}\n\n.list-header > form > button {\n    margin: 0.4rem;\n    height: 2.2rem;\n    width: 12%;\n}\n\n.list-header > form > input {\n    margin: 0.4rem;\n    width: 80%;\n    height: 2.2rem;\n}\n\n.list {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin: 0.4rem;\n    height: 2.4rem;\n    background-color: #aaaaaa33;\n    border-radius: 0.5rem;\n}\n\n.list:hover {\n    background-color: rgba(51, 51, 51, 0.2);\n    transform: scale(1.05);\n}\n\n.active {\n    border: rgb(27, 27, 27) solid 2px;\n    background-color: rgba(34, 34, 34, 0.234);\n}\n\n#main {\n    width: 65%;\n    height: 100%;\n    background: #fff;\n    padding: 0;\n    text-align: center;\n    background-color: rgb(34, 34, 34);\n}\n\n.items-list {\n    display: flex;\n    flex-direction: column;\n    overflow-x: scroll;\n    width: 100%;\n    height: 100%;\n    align-items: center;\n}\n\n.itemCardHoverOptions {\n    position: absolute;\n    right: 2%;\n    display: flex;\n    flex-direction: row;\n    justify-self: flex-end;\n    align-items: center;\n    height: 3rem;\n    width: max-content;\n}\n\n.listHoverOptions {\n    position: absolute;\n    right: 2%;\n    display: flex;\n    flex-direction: row;\n    justify-self: flex-end;\n    align-items: center;\n    height: 1.8rem;\n    width: max-content;\n    background: rgba(201, 201, 201, 0.9);\n}\n\n.itemCard {\n    margin: 0.4rem 0;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    border-radius: 0.5rem;\n    background: rgba(187, 187, 187, 0.117);\n    width: 90%;\n    height: 3rem;\n    list-style: none;\n}\n\n.itemCard > h3 {\n    color: #222;\n    font-family: 'Roboto Mono', monospace;\n}\n\n.urgent {\n    color: #ff0000;\n    background-color: rgba(255, 0, 0, 0.89);\n}\n\n.completed {\n    text-decoration: line-through;\n    color: #aaa;\n    background-color: rgba(0, 168, 0, 0.507);\n}\n\n.optionsBtn {\n    margin: 0.4rem;\n    height: 1.2rem;\n    fill: #f00;\n}\n\n#delete-btn > img:hover {\n    fill: #f00;\n    color: #f00;\n}\n\n.optionsBtn:hover {\n    transform: scale(1.4);\n}\n\n.itemCard-hover,\n.listCard-hover {\n    background: rgba(18, 113, 182, 0.3);\n    transform: scale(1.02);\n}\n\n.page-overlay {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background: rgba(0, 0, 0, 0.5);\n    z-index: 10;\n    /* display: none; */\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.editor-card {\n    z-index: 21;\n    background-color: #eee;\n    width: 30rem;\n    display: flex;\n    border-radius: 0.5rem;\n    flex-direction: column;\n    align-items: center;\n}\n\n#item-header,\n#list-header {\n    font-size: 2rem;\n    padding: 0.4rem;\n}\n\n#item-form {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    height: 100%;\n    width: 100%;\n}\n\nlabel {\n    margin: 0.4rem;\n    width: 60%;\n    height: 2.6rem;\n    /* border: 1px solid #aaa; */\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n}\n\n#item-submit {\n    margin: 0.4rem;\n    width: 80%;\n    height: 2.6rem;\n    border: 1px solid #aaa;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background: rgba(18, 113, 182);\n    border-radius: 0.5rem;\n}\n\n#item-title,\n#item-due-date,\n#item-priority {\n    height: 1.6rem;\n    margin: 0.4rem;\n}\n\nfooter {\n    bottom: 0;\n    width: 100%;\n    background: #333;\n    color: #fff;\n    padding: 5px;\n    text-align: center;\n}\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"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","sourcesContent":["/* @import '~font-awesome/css/font-awesome.css'; */\n@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');\n\n* {\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n}\n\nbody {\n    font-family: 'Roboto Mono', monospace;\n    display: flex;\n    flex-direction: column;\n    height: 100vh;\n    justify-content: space-between;\n    /* overflow: hidden; */\n    background-color: rgba(34, 34, 34, 0.528);\n    color: #fff;\n}\n\nh1,\nh2,\nh3,\nh4 {\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n}\n\nh1 {\n    font-size: 2.4rem;\n}\n\nbutton {\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    font-size: 1.2rem;\n    padding: 0.5rem 1rem;\n    border: none;\n    border-radius: 0.5rem;\n    background-color: #fff;\n    cursor: pointer;\n    transition: all 0.2s ease-in-out;\n    height: 2.4rem;\n}\n\nheader {\n    background: #333;\n    color: #fff;\n    padding: 5px;\n    text-align: center;\n}\n\n#main-section {\n    display: flex;\n    flex-direction: row;\n    height: 100vh;\n}\n\n#todo-item-input,\n#list-creator-input {\n    height: 2.6rem;\n    flex: 1;\n    padding: 5px;\n    width: 75%;\n}\n\n#list-creator-btn,\n#add-todo-item-btn {\n    padding: 5px;\n    width: 20%;\n}\n\n#side-panel {\n    width: 35%;\n    height: 100%;\n    background-color: rgba(34, 34, 34, 0.768);\n    /* background: rgba(80, 79, 79, 0.288); */\n    opacity: 0.9;\n    padding: 10px;\n    text-align: center;\n}\n\n#side-panel-header {\n    font-size: 1.2rem;\n    font-weight: 500;\n    margin-bottom: 10px;\n}\n\n.todo-list-container {\n    display: flex;\n    flex-direction: column;\n    height: 100%;\n}\n\n.list-header {\n    font-size: large;\n    position: sticky;\n    padding: 5px;\n    width: 100%;\n    padding: 0.8rem;\n    /* height: 10rem; */\n}\n\n.list-header > form {\n    margin: 0.4rem;\n    height: 1.8rem;\n    width: 100%;\n}\n\n.list-header > form > button {\n    margin: 0.4rem;\n    height: 2.2rem;\n    width: 12%;\n}\n\n.list-header > form > input {\n    margin: 0.4rem;\n    width: 80%;\n    height: 2.2rem;\n}\n\n.list {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin: 0.4rem;\n    height: 2.4rem;\n    background-color: #aaaaaa33;\n    border-radius: 0.5rem;\n}\n\n.list:hover {\n    background-color: rgba(51, 51, 51, 0.2);\n    transform: scale(1.05);\n}\n\n.active {\n    border: rgb(27, 27, 27) solid 2px;\n    background-color: rgba(34, 34, 34, 0.234);\n}\n\n#main {\n    width: 65%;\n    height: 100%;\n    background: #fff;\n    padding: 0;\n    text-align: center;\n    background-color: rgb(34, 34, 34);\n}\n\n.items-list {\n    display: flex;\n    flex-direction: column;\n    overflow-x: scroll;\n    width: 100%;\n    height: 100%;\n    align-items: center;\n}\n\n.itemCardHoverOptions {\n    position: absolute;\n    right: 2%;\n    display: flex;\n    flex-direction: row;\n    justify-self: flex-end;\n    align-items: center;\n    height: 3rem;\n    width: max-content;\n}\n\n.listHoverOptions {\n    position: absolute;\n    right: 2%;\n    display: flex;\n    flex-direction: row;\n    justify-self: flex-end;\n    align-items: center;\n    height: 1.8rem;\n    width: max-content;\n    background: rgba(201, 201, 201, 0.9);\n}\n\n.itemCard {\n    margin: 0.4rem 0;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    border-radius: 0.5rem;\n    background: rgba(187, 187, 187, 0.117);\n    width: 90%;\n    height: 3rem;\n    list-style: none;\n}\n\n.itemCard > h3 {\n    color: #222;\n    font-family: 'Roboto Mono', monospace;\n}\n\n.urgent {\n    color: #ff0000;\n    background-color: rgba(255, 0, 0, 0.89);\n}\n\n.completed {\n    text-decoration: line-through;\n    color: #aaa;\n    background-color: rgba(0, 168, 0, 0.507);\n}\n\n.optionsBtn {\n    margin: 0.4rem;\n    height: 1.2rem;\n    fill: #f00;\n}\n\n#delete-btn > img:hover {\n    fill: #f00;\n    color: #f00;\n}\n\n.optionsBtn:hover {\n    transform: scale(1.4);\n}\n\n.itemCard-hover,\n.listCard-hover {\n    background: rgba(18, 113, 182, 0.3);\n    transform: scale(1.02);\n}\n\n.page-overlay {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background: rgba(0, 0, 0, 0.5);\n    z-index: 10;\n    /* display: none; */\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.editor-card {\n    z-index: 21;\n    background-color: #eee;\n    width: 30rem;\n    display: flex;\n    border-radius: 0.5rem;\n    flex-direction: column;\n    align-items: center;\n}\n\n#item-header,\n#list-header {\n    font-size: 2rem;\n    padding: 0.4rem;\n}\n\n#item-form {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    height: 100%;\n    width: 100%;\n}\n\nlabel {\n    margin: 0.4rem;\n    width: 60%;\n    height: 2.6rem;\n    /* border: 1px solid #aaa; */\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n}\n\n#item-submit {\n    margin: 0.4rem;\n    width: 80%;\n    height: 2.6rem;\n    border: 1px solid #aaa;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background: rgba(18, 113, 182);\n    border-radius: 0.5rem;\n}\n\n#item-title,\n#item-due-date,\n#item-priority {\n    height: 1.6rem;\n    margin: 0.4rem;\n}\n\nfooter {\n    bottom: 0;\n    width: 100%;\n    background: #333;\n    color: #fff;\n    padding: 5px;\n    text-align: center;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* @import '~font-awesome/css/font-awesome.css'; */\r\n\r\n* {\r\n    padding: 0;\r\n    margin: 0;\r\n    box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n    font-family: 'Roboto Mono', monospace;\r\n    display: flex;\r\n    flex-direction: column;\r\n    height: 100vh;\r\n    justify-content: space-between;\r\n    /* overflow: hidden; */\r\n    background-color: rgba(34, 34, 34, 0.528);\r\n    color: #fff;\r\n}\r\n\r\nh1,\r\nh2,\r\nh3,\r\nh4 {\r\n    font-family: 'Roboto', sans-serif;\r\n    font-weight: 500;\r\n}\r\n\r\nh1 {\r\n    font-size: 2.4rem;\r\n}\r\n\r\nbutton {\r\n    font-family: 'Roboto', sans-serif;\r\n    font-weight: 500;\r\n    font-size: 1.2rem;\r\n    padding: 0.5rem 1rem;\r\n    border: none;\r\n    border-radius: 0.5rem;\r\n    background-color: #fff;\r\n    cursor: pointer;\r\n    transition: all 0.2s ease-in-out;\r\n    height: 2.4rem;\r\n}\r\n\r\nheader {\r\n    background: #333;\r\n    color: #fff;\r\n    padding: 5px;\r\n    text-align: center;\r\n}\r\n\r\n#main-section {\r\n    display: flex;\r\n    flex-direction: row;\r\n    height: 100vh;\r\n}\r\n\r\n#todo-item-input,\r\n#list-creator-input {\r\n    height: 2.6rem;\r\n    flex: 1;\r\n    padding: 5px;\r\n    width: 75%;\r\n}\r\n\r\n#list-creator-btn,\r\n#add-todo-item-btn {\r\n    padding: 5px;\r\n    width: 20%;\r\n}\r\n\r\n#side-panel {\r\n    width: 35%;\r\n    height: 100%;\r\n    background-color: rgba(34, 34, 34, 0.768);\r\n    /* background: rgba(80, 79, 79, 0.288); */\r\n    opacity: 0.9;\r\n    padding: 10px;\r\n    text-align: center;\r\n}\r\n\r\n#side-panel-header {\r\n    font-size: 1.2rem;\r\n    font-weight: 500;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.todo-list-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    height: 100%;\r\n}\r\n\r\n.list-header {\r\n    font-size: large;\r\n    position: sticky;\r\n    padding: 5px;\r\n    width: 100%;\r\n    padding: 0.8rem;\r\n    /* height: 10rem; */\r\n}\r\n\r\n.list-header > form {\r\n    margin: 0.4rem;\r\n    height: 1.8rem;\r\n    width: 100%;\r\n}\r\n\r\n.list-header > form > button {\r\n    margin: 0.4rem;\r\n    height: 2.2rem;\r\n    width: 12%;\r\n}\r\n\r\n.list-header > form > input {\r\n    margin: 0.4rem;\r\n    width: 80%;\r\n    height: 2.2rem;\r\n}\r\n\r\n.list {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin: 0.4rem;\r\n    height: 2.4rem;\r\n    background-color: #aaaaaa33;\r\n    border-radius: 0.5rem;\r\n}\r\n\r\n.list:hover {\r\n    background-color: rgba(51, 51, 51, 0.2);\r\n    transform: scale(1.05);\r\n}\r\n\r\n.active {\r\n    border: rgb(27, 27, 27) solid 2px;\r\n    background-color: rgba(34, 34, 34, 0.234);\r\n}\r\n\r\n#main {\r\n    width: 65%;\r\n    height: 100%;\r\n    background: #fff;\r\n    padding: 0;\r\n    text-align: center;\r\n    background-color: rgb(34, 34, 34);\r\n}\r\n\r\n.items-list {\r\n    display: flex;\r\n    flex-direction: column;\r\n    overflow-x: scroll;\r\n    width: 100%;\r\n    height: 100%;\r\n    align-items: center;\r\n}\r\n\r\n.itemCardHoverOptions {\r\n    position: absolute;\r\n    right: 2%;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-self: flex-end;\r\n    align-items: center;\r\n    height: 3rem;\r\n    width: max-content;\r\n}\r\n\r\n.listHoverOptions {\r\n    position: absolute;\r\n    right: 2%;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-self: flex-end;\r\n    align-items: center;\r\n    height: 1.8rem;\r\n    width: max-content;\r\n    background: rgba(201, 201, 201, 0.9);\r\n}\r\n\r\n.itemCard {\r\n    margin: 0.4rem 0;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    text-align: center;\r\n    border-radius: 0.5rem;\r\n    background: rgba(187, 187, 187, 0.117);\r\n    width: 90%;\r\n    height: 3rem;\r\n    list-style: none;\r\n}\r\n\r\n.itemCard > h3 {\r\n    color: #222;\r\n    font-family: 'Roboto Mono', monospace;\r\n}\r\n\r\n.urgent {\r\n    color: #ff0000;\r\n    background-color: rgba(255, 0, 0, 0.89);\r\n}\r\n\r\n.completed {\r\n    text-decoration: line-through;\r\n    color: #aaa;\r\n    background-color: rgba(0, 168, 0, 0.507);\r\n}\r\n\r\n.optionsBtn {\r\n    margin: 0.4rem;\r\n    height: 1.2rem;\r\n    fill: #f00;\r\n}\r\n\r\n#delete-btn > img:hover {\r\n    fill: #f00;\r\n    color: #f00;\r\n}\r\n\r\n.optionsBtn:hover {\r\n    transform: scale(1.4);\r\n}\r\n\r\n.itemCard-hover,\r\n.listCard-hover {\r\n    background: rgba(18, 113, 182, 0.3);\r\n    transform: scale(1.02);\r\n}\r\n\r\n.page-overlay {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    z-index: 10;\r\n    /* display: none; */\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.editor-card {\r\n    z-index: 21;\r\n    background-color: #eee;\r\n    width: 30rem;\r\n    display: flex;\r\n    border-radius: 0.5rem;\r\n    flex-direction: column;\r\n    align-items: center;\r\n}\r\n\r\n#item-header,\r\n#list-header {\r\n    font-size: 2rem;\r\n    padding: 0.4rem;\r\n}\r\n\r\n#item-form {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    height: 100%;\r\n    width: 100%;\r\n}\r\n\r\nlabel {\r\n    margin: 0.4rem;\r\n    width: 60%;\r\n    height: 2.6rem;\r\n    /* border: 1px solid #aaa; */\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n}\r\n\r\n#item-submit {\r\n    margin: 0.4rem;\r\n    width: 80%;\r\n    height: 2.6rem;\r\n    border: 1px solid #aaa;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    background: rgba(18, 113, 182);\r\n    border-radius: 0.5rem;\r\n}\r\n\r\n#item-title,\r\n#item-due-date,\r\n#item-priority {\r\n    height: 1.6rem;\r\n    margin: 0.4rem;\r\n}\r\n\r\nfooter {\r\n    bottom: 0;\r\n    width: 100%;\r\n    background: #333;\r\n    color: #fff;\r\n    padding: 5px;\r\n    text-align: center;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"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","sourcesContent":["/* @import '~font-awesome/css/font-awesome.css'; */\r\n@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');\r\n\r\n* {\r\n    padding: 0;\r\n    margin: 0;\r\n    box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n    font-family: 'Roboto Mono', monospace;\r\n    display: flex;\r\n    flex-direction: column;\r\n    height: 100vh;\r\n    justify-content: space-between;\r\n    /* overflow: hidden; */\r\n    background-color: rgba(34, 34, 34, 0.528);\r\n    color: #fff;\r\n}\r\n\r\nh1,\r\nh2,\r\nh3,\r\nh4 {\r\n    font-family: 'Roboto', sans-serif;\r\n    font-weight: 500;\r\n}\r\n\r\nh1 {\r\n    font-size: 2.4rem;\r\n}\r\n\r\nbutton {\r\n    font-family: 'Roboto', sans-serif;\r\n    font-weight: 500;\r\n    font-size: 1.2rem;\r\n    padding: 0.5rem 1rem;\r\n    border: none;\r\n    border-radius: 0.5rem;\r\n    background-color: #fff;\r\n    cursor: pointer;\r\n    transition: all 0.2s ease-in-out;\r\n    height: 2.4rem;\r\n}\r\n\r\nheader {\r\n    background: #333;\r\n    color: #fff;\r\n    padding: 5px;\r\n    text-align: center;\r\n}\r\n\r\n#main-section {\r\n    display: flex;\r\n    flex-direction: row;\r\n    height: 100vh;\r\n}\r\n\r\n#todo-item-input,\r\n#list-creator-input {\r\n    height: 2.6rem;\r\n    flex: 1;\r\n    padding: 5px;\r\n    width: 75%;\r\n}\r\n\r\n#list-creator-btn,\r\n#add-todo-item-btn {\r\n    padding: 5px;\r\n    width: 20%;\r\n}\r\n\r\n#side-panel {\r\n    width: 35%;\r\n    height: 100%;\r\n    background-color: rgba(34, 34, 34, 0.768);\r\n    /* background: rgba(80, 79, 79, 0.288); */\r\n    opacity: 0.9;\r\n    padding: 10px;\r\n    text-align: center;\r\n}\r\n\r\n#side-panel-header {\r\n    font-size: 1.2rem;\r\n    font-weight: 500;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.todo-list-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    height: 100%;\r\n}\r\n\r\n.list-header {\r\n    font-size: large;\r\n    position: sticky;\r\n    padding: 5px;\r\n    width: 100%;\r\n    padding: 0.8rem;\r\n    /* height: 10rem; */\r\n}\r\n\r\n.list-header > form {\r\n    margin: 0.4rem;\r\n    height: 1.8rem;\r\n    width: 100%;\r\n}\r\n\r\n.list-header > form > button {\r\n    margin: 0.4rem;\r\n    height: 2.2rem;\r\n    width: 12%;\r\n}\r\n\r\n.list-header > form > input {\r\n    margin: 0.4rem;\r\n    width: 80%;\r\n    height: 2.2rem;\r\n}\r\n\r\n.list {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin: 0.4rem;\r\n    height: 2.4rem;\r\n    background-color: #aaaaaa33;\r\n    border-radius: 0.5rem;\r\n}\r\n\r\n.list:hover {\r\n    background-color: rgba(51, 51, 51, 0.2);\r\n    transform: scale(1.05);\r\n}\r\n\r\n.active {\r\n    border: rgb(27, 27, 27) solid 2px;\r\n    background-color: rgba(34, 34, 34, 0.234);\r\n}\r\n\r\n#main {\r\n    width: 65%;\r\n    height: 100%;\r\n    background: #fff;\r\n    padding: 0;\r\n    text-align: center;\r\n    background-color: rgb(34, 34, 34);\r\n}\r\n\r\n.items-list {\r\n    display: flex;\r\n    flex-direction: column;\r\n    overflow-x: scroll;\r\n    width: 100%;\r\n    height: 100%;\r\n    align-items: center;\r\n}\r\n\r\n.itemCardHoverOptions {\r\n    position: absolute;\r\n    right: 2%;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-self: flex-end;\r\n    align-items: center;\r\n    height: 3rem;\r\n    width: max-content;\r\n}\r\n\r\n.listHoverOptions {\r\n    position: absolute;\r\n    right: 2%;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-self: flex-end;\r\n    align-items: center;\r\n    height: 1.8rem;\r\n    width: max-content;\r\n    background: rgba(201, 201, 201, 0.9);\r\n}\r\n\r\n.itemCard {\r\n    margin: 0.4rem 0;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    text-align: center;\r\n    border-radius: 0.5rem;\r\n    background: rgba(187, 187, 187, 0.117);\r\n    width: 90%;\r\n    height: 3rem;\r\n    list-style: none;\r\n}\r\n\r\n.itemCard > h3 {\r\n    color: #222;\r\n    font-family: 'Roboto Mono', monospace;\r\n}\r\n\r\n.urgent {\r\n    color: #ff0000;\r\n    background-color: rgba(255, 0, 0, 0.89);\r\n}\r\n\r\n.completed {\r\n    text-decoration: line-through;\r\n    color: #aaa;\r\n    background-color: rgba(0, 168, 0, 0.507);\r\n}\r\n\r\n.optionsBtn {\r\n    margin: 0.4rem;\r\n    height: 1.2rem;\r\n    fill: #f00;\r\n}\r\n\r\n#delete-btn > img:hover {\r\n    fill: #f00;\r\n    color: #f00;\r\n}\r\n\r\n.optionsBtn:hover {\r\n    transform: scale(1.4);\r\n}\r\n\r\n.itemCard-hover,\r\n.listCard-hover {\r\n    background: rgba(18, 113, 182, 0.3);\r\n    transform: scale(1.02);\r\n}\r\n\r\n.page-overlay {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    z-index: 10;\r\n    /* display: none; */\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.editor-card {\r\n    z-index: 21;\r\n    background-color: #eee;\r\n    width: 30rem;\r\n    display: flex;\r\n    border-radius: 0.5rem;\r\n    flex-direction: column;\r\n    align-items: center;\r\n}\r\n\r\n#item-header,\r\n#list-header {\r\n    font-size: 2rem;\r\n    padding: 0.4rem;\r\n}\r\n\r\n#item-form {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    height: 100%;\r\n    width: 100%;\r\n}\r\n\r\nlabel {\r\n    margin: 0.4rem;\r\n    width: 60%;\r\n    height: 2.6rem;\r\n    /* border: 1px solid #aaa; */\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n}\r\n\r\n#item-submit {\r\n    margin: 0.4rem;\r\n    width: 80%;\r\n    height: 2.6rem;\r\n    border: 1px solid #aaa;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    background: rgba(18, 113, 182);\r\n    border-radius: 0.5rem;\r\n}\r\n\r\n#item-title,\r\n#item-due-date,\r\n#item-priority {\r\n    height: 1.6rem;\r\n    margin: 0.4rem;\r\n}\r\n\r\nfooter {\r\n    bottom: 0;\r\n    width: 100%;\r\n    background: #333;\r\n    color: #fff;\r\n    padding: 5px;\r\n    text-align: center;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -185,7 +185,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "displayActiveList": () => (/* binding */ displayActiveList),
 /* harmony export */   "setActiveList": () => (/* binding */ setActiveList)
 /* harmony export */ });
-/* harmony import */ var _models_State__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./models/State */ "./src/models/State.js");
+/* harmony import */ var _models_State__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./models/State */ "./src/models/State.ts");
+/* harmony import */ var _models_State__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_models_State__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_todoItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/todoItem */ "./src/components/todoItem.js");
 /* harmony import */ var _components_pageLayout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/pageLayout */ "./src/components/pageLayout.js");
 /* harmony import */ var _components_ListElement__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/ListElement */ "./src/components/ListElement.js");
@@ -677,7 +678,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./src/index.ts");
 /* harmony import */ var _components_ListHoverOptions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/ListHoverOptions */ "./src/components/ListHoverOptions.js");
 /* harmony import */ var _components_ItemHoverOptions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/ItemHoverOptions */ "./src/components/ItemHoverOptions.js");
-/* harmony import */ var _models_State__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./models/State */ "./src/models/State.js");
+/* harmony import */ var _models_State__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./models/State */ "./src/models/State.ts");
+/* harmony import */ var _models_State__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_models_State__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _models_TodoList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./models/TodoList */ "./src/models/TodoList.js");
 /* harmony import */ var _models_TodoItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./models/TodoItem */ "./src/models/TodoItem.js");
 /* harmony import */ var _components_editItem__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/editItem */ "./src/components/editItem.js");
@@ -918,143 +920,6 @@ function listenForOptionClick() {
 
   if (completeBtn) completeBtn.onclick = (e) => handleCompleteItem(e);
 }
-
-
-/***/ }),
-
-/***/ "./src/models/State.js":
-/*!*****************************!*\
-  !*** ./src/models/State.js ***!
-  \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "State": () => (/* binding */ State),
-/* harmony export */   "state": () => (/* binding */ state)
-/* harmony export */ });
-class State {
-    todoLists = []
-    todoItems = []
-
-    constructor(initialState) {
-        this.todoLists = [...initialState.todoLists] || []
-        this.todoItems = [...initialState.todoItems] || []
-    }
-
-    set addTodoLists(list) {
-        this._todoLists = this.todoLists.push(list)
-    }
-
-    get todoLists() {
-        return this._todoLists
-    }
-
-    removeList(listId) {
-        this.todoLists = this.todoLists.filter((element) => element.listId !== listId)
-        // this.save()
-    }
-
-    set addItem(item) {
-        // this._todoItems = [...this.todoItems, item]
-        this._todoItems = this.todoItems.push(item)
-    }
-
-    get todoItems() {
-        return this._todoItems
-    }
-
-    removeItem(itemId) {
-        this.todoItems = this.todoItems.filter((element) => element.itemId !== itemId)
-    }
-
-    removeListItems(listId){
-        this.todoItems = this.todoItems.filter((item) => item.listId !== listId)
-    }
-
-    clearActive() {
-        this.todoLists.forEach((list) => {
-            list.isActive = false
-        })
-    }
-
-    findList(listId) {
-        return this.todoLists.find((list) => list.listId === listId)
-    }
-
-    findItem(itemId) {
-        return this.todoItems.find((item) => item.itemId === itemId)
-    }
-
-    get activeList() {
-        return this.todoLists.find((list) => list.isActive === true) || this.todoLists[0]
-    }
-
-    set activeList(list) {
-        const listId = list.id
-        this.todoLists.find((list) => list.listId === listId).isActive = true
-    }
-
-    save() {
-        const stateJSON = JSON.stringify(this)
-        localStorage.setItem('myAwesomeTodoState', stateJSON)
-    }
-}
-
-// const initialState = JSON.parse(localStorage.getItem('myAwesomeTodoState'));
-const data = localStorage.getItem('myAwesomeTodoState')
-
-const defaultState = {
-    todoLists: [
-        {
-            title: 'Default List',
-            description: 'A list to help you get started',
-            isActive: true,
-            listId: 'list1',
-        },
-    ],
-    todoItems: [
-        {
-            title: 'add a todo item',
-            itemId: 'item1',
-            listId: 'list1',
-        },
-        {
-            title: 'edit an item',
-            itemId: 'item2',
-            listId: 'list1',
-        },
-        {
-            title: 'edit urgency of ite',
-            itemId: 'item3',
-            listId: 'list1',
-        },
-        {
-            title: 'delete an item',
-            itemId: 'item4',
-            listId: 'list1',
-        },
-        {
-            title: 'add a list',
-            itemId: 'item5',
-            listId: 'list1',
-        },
-        {
-            title: 'edit a list',
-            itemId: 'item6',
-            listId: 'list1',
-        },
-        {
-            title: 'delete a list',
-            itemId: 'item7',
-            listId: 'list1',
-        },
-    ],
-}
-
-const initialState = data ? JSON.parse(data) : defaultState
-
-const state = new State(initialState)
 
 
 /***/ }),
@@ -1563,6 +1428,154 @@ exports.displayState = displayState;
 displayState();
 
 
+/***/ }),
+
+/***/ "./src/models/State.ts":
+/*!*****************************!*\
+  !*** ./src/models/State.ts ***!
+  \*****************************/
+/***/ (function(__unused_webpack_module, exports) {
+
+
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.state = exports.State = void 0;
+var State = /** @class */ (function () {
+    function State(initialState) {
+        this.todoLists = [];
+        this.todoItems = [];
+        this.todoLists = __spreadArray([], initialState.todoLists, true) || [];
+        this.todoItems = __spreadArray([], initialState.todoItems, true) || [];
+    }
+    Object.defineProperty(State.prototype, "addTodoLists", {
+        set: function (list) {
+            this._todoLists = this.todoLists.push(list);
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(State.prototype, "todoLists", {
+        get: function () {
+            return this._todoLists;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    State.prototype.removeList = function (listId) {
+        this.todoLists = this.todoLists.filter(function (element) { return element.listId !== listId; });
+        // this.save()
+    };
+    Object.defineProperty(State.prototype, "addItem", {
+        set: function (item) {
+            // this._todoItems = [...this.todoItems, item]
+            this._todoItems = this.todoItems.push(item);
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(State.prototype, "todoItems", {
+        get: function () {
+            return this._todoItems;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    State.prototype.removeItem = function (itemId) {
+        this.todoItems = this.todoItems.filter(function (element) { return element.itemId !== itemId; });
+    };
+    State.prototype.removeListItems = function (listId) {
+        this.todoItems = this.todoItems.filter(function (item) { return item.listId !== listId; });
+    };
+    State.prototype.clearActive = function () {
+        this.todoLists.forEach(function (list) {
+            list.isActive = false;
+        });
+    };
+    State.prototype.findList = function (listId) {
+        return this.todoLists.find(function (list) { return list.listId === listId; });
+    };
+    State.prototype.findItem = function (itemId) {
+        return this.todoItems.find(function (item) { return item.itemId === itemId; });
+    };
+    Object.defineProperty(State.prototype, "activeList", {
+        get: function () {
+            return this.todoLists.find(function (list) { return list.isActive === true; }) || this.todoLists[0];
+        },
+        set: function (list) {
+            var listId = list.id;
+            this.todoLists.find(function (list) { return list.listId === listId; }).isActive = true;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    State.prototype.save = function () {
+        var stateJSON = JSON.stringify(this);
+        localStorage.setItem('myAwesomeTodoState', stateJSON);
+    };
+    return State;
+}());
+exports.State = State;
+// const initialState = JSON.parse(localStorage.getItem('myAwesomeTodoState'));
+var data = localStorage.getItem('myAwesomeTodoState');
+var defaultState = {
+    todoLists: [
+        {
+            title: 'Default List',
+            description: 'A list to help you get started',
+            isActive: true,
+            listId: 'list1',
+        },
+    ],
+    todoItems: [
+        {
+            title: 'add a todo item',
+            itemId: 'item1',
+            listId: 'list1',
+        },
+        {
+            title: 'edit an item',
+            itemId: 'item2',
+            listId: 'list1',
+        },
+        {
+            title: 'edit urgency of ite',
+            itemId: 'item3',
+            listId: 'list1',
+        },
+        {
+            title: 'delete an item',
+            itemId: 'item4',
+            listId: 'list1',
+        },
+        {
+            title: 'add a list',
+            itemId: 'item5',
+            listId: 'list1',
+        },
+        {
+            title: 'edit a list',
+            itemId: 'item6',
+            listId: 'list1',
+        },
+        {
+            title: 'delete a list',
+            itemId: 'item7',
+            listId: 'list1',
+        },
+    ],
+};
+var initialState = data ? JSON.parse(data) : defaultState;
+exports.state = new State(initialState);
+
+
 /***/ })
 
 /******/ 	});
@@ -1585,7 +1598,7 @@ displayState();
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;

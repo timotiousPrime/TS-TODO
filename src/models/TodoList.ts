@@ -1,3 +1,11 @@
+export interface TodoList {
+    // description: string;
+    // title: string;
+    // isActive: boolean;
+    // listId: string;
+    dateCreated: Date;
+}
+
 export class TodoList {
     description = ''
     title = ''

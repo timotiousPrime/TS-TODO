@@ -1,3 +1,8 @@
+interface State {
+    todoLists: TodoLists;
+    todoItems: TodoItems;
+}
+
 export class State {
     todoLists = []
     todoItems = []
@@ -15,7 +20,7 @@ export class State {
         return this._todoLists
     }
 
-    removeList(listId) {
+    removeList(listId: string) {
         this.todoLists = this.todoLists.filter((element) => element.listId !== listId)
         // this.save()
     }
