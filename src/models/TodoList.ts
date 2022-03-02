@@ -1,51 +1,47 @@
-export interface TodoList {
-    // description: string;
-    // title: string;
-    // isActive: boolean;
-    // listId: string;
-    dateCreated: Date;
+export interface List {
+  title?: string;
+  description?: string;
+  isActive: boolean;
+  listId: string;
+  dateCreated: Date;
 }
 
 export class TodoList {
-    description = ''
-    title = ''
-    isActive = true
-    listId = `list${new Date().getTime()}`
-    dateCreated = new Date()
+  title: string = "";
+  description: string = "";
+  active: boolean = true;
+  listId = `list${new Date().getTime()}`;
+  dateCreated = new Date();
 
-    constructor(title) {
-        this.title = title
-    }
+  constructor(title?: string) {
+    this.title = title;
+  }
 
-    get title() {
-        return this._title
-    }
+  get listTitle() {
+    return this.title;
+  }
 
-    set title(value) {
-        this._title = value
-    }
+  set listTitle(value) {
+    this.title = value;
+  }
 
-    get description() {
-        return this._description
-    }
+  get listDescription() {
+    return this.description;
+  }
 
-    set description(value) {
-        this._description = value
-    }
+  set listDescription(value) {
+    this.description = value;
+  }
 
-    get listId() {
-        return this._listId
-    }
+  get id() {
+    return this.listId;
+  }
 
-    set listId(id) {
-        this._listId = id
-    }
+  get isActive() {
+    return this.isActive;
+  }
 
-    get isActive() {
-        return this._isActive
-    }
-
-    set isActive(boolVal) {
-        this._isActive = boolVal
-    }
+  set isActive(boolVal) {
+    this.isActive = boolVal;
+  }
 }

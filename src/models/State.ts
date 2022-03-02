@@ -1,127 +1,133 @@
-interface State {
-    todoLists: TodoLists;
-    todoItems: TodoItems;
+import { Item } from "./TodoItem";
+import { List } from "./TodoList";
+
+export interface State {
+  lists: List[];
+  todoItems: Item[];
 }
 
 export class State {
-    todoLists = []
-    todoItems = []
+  lists: List[] = [];
+  todoItems: Item[] = [];
 
-    constructor(initialState) {
-        this.todoLists = [...initialState.todoLists] || []
-        this.todoItems = [...initialState.todoItems] || []
-    }
+  constructor(initialState: State) {
+    this.lists = [...initialState.lists] || [];
+    this.todoItems = [...initialState.items] || [];
+  }
 
-    set addTodoLists(list) {
-        this._todoLists = this.todoLists.push(list)
-    }
+  set addTodoLists(list: List) {
+    this.lists = [...this.lists, list];
+    // this.lists = this.lists.push(list);
+  }
 
-    get todoLists() {
-        return this._todoLists
-    }
+  get todoLists(): List[] {
+    return this.lists;
+  }
 
-    removeList(listId: string) {
-        this.todoLists = this.todoLists.filter((element) => element.listId !== listId)
-        // this.save()
-    }
+  removeList(listId: string) {
+    this.lists = this.lists.filter((element) => element.listId !== listId);
+  }
 
-    set addItem(item) {
-        // this._todoItems = [...this.todoItems, item]
-        this._todoItems = this.todoItems.push(item)
-    }
+  set addItem(item: Item) {
+    this.todoItems = [...this.todoItems, item];
+  }
 
-    get todoItems() {
-        return this._todoItems
-    }
+  get items(): Item[] {
+    return this.todoItems;
+  }
 
-    removeItem(itemId) {
-        this.todoItems = this.todoItems.filter((element) => element.itemId !== itemId)
-    }
+  removeItem(itemId: string) {
+    this.todoItems = this.todoItems.filter(
+      (element) => element.itemId !== itemId
+    );
+  }
 
-    removeListItems(listId){
-        this.todoItems = this.todoItems.filter((item) => item.listId !== listId)
-    }
+  removeListItems(listId: string) {
+    this.todoItems = this.todoItems.filter((item) => item.listId !== listId);
+  }
 
-    clearActive() {
-        this.todoLists.forEach((list) => {
-            list.isActive = false
-        })
-    }
+  clearActive(): void {
+    this.todoLists.forEach((list) => {
+      list.isActive = false;
+    });
+  }
 
-    findList(listId) {
-        return this.todoLists.find((list) => list.listId === listId)
-    }
+  findList(listId: string): List {
+    return this.todoLists.find((list) => list.listId === listId);
+  }
 
-    findItem(itemId) {
-        return this.todoItems.find((item) => item.itemId === itemId)
-    }
+  findItem(itemId: string): Item {
+    return this.todoItems.find((item) => item.itemId === itemId);
+  }
 
-    get activeList() {
-        return this.todoLists.find((list) => list.isActive === true) || this.todoLists[0]
-    }
+  get activeList(): List {
+    return (
+      this.todoLists.find((list) => list.isActive === true) || this.todoLists[0]
+    );
+  }
 
-    set activeList(list) {
-        const listId = list.id
-        this.todoLists.find((list) => list.listId === listId).isActive = true
-    }
+  set activeList(list: List) {
+    const listId = list.listId;
+    this.todoLists.find((list) => list.listId === listId).isActive = true;
+  }
 
-    save() {
-        const stateJSON = JSON.stringify(this)
-        localStorage.setItem('myAwesomeTodoState', stateJSON)
-    }
+  save(): void {
+    const stateJSON = JSON.stringify(this);
+    localStorage.setItem("myAwesomeTodoState", stateJSON);
+  }
 }
 
 // const initialState = JSON.parse(localStorage.getItem('myAwesomeTodoState'));
-const data = localStorage.getItem('myAwesomeTodoState')
+const data = localStorage.getItem("myAwesomeTodoState");
 
 const defaultState = {
-    todoLists: [
-        {
-            title: 'Default List',
-            description: 'A list to help you get started',
-            isActive: true,
-            listId: 'list1',
-        },
-    ],
-    todoItems: [
-        {
-            title: 'add a todo item',
-            itemId: 'item1',
-            listId: 'list1',
-        },
-        {
-            title: 'edit an item',
-            itemId: 'item2',
-            listId: 'list1',
-        },
-        {
-            title: 'edit urgency of ite',
-            itemId: 'item3',
-            listId: 'list1',
-        },
-        {
-            title: 'delete an item',
-            itemId: 'item4',
-            listId: 'list1',
-        },
-        {
-            title: 'add a list',
-            itemId: 'item5',
-            listId: 'list1',
-        },
-        {
-            title: 'edit a list',
-            itemId: 'item6',
-            listId: 'list1',
-        },
-        {
-            title: 'delete a list',
-            itemId: 'item7',
-            listId: 'list1',
-        },
-    ],
-}
+  todoLists: [
+    {
+      title: "Default List",
+      description: "A list to help you get started",
+      isActive: true,
+      listId: "list1",
+    },
+  ],
+  todoItems: [
+    {
+      title: "add a todo item",
+      itemId: "item1",
+      listId: "list1",
+    },
+    {
+      title: "edit an item",
+      itemId: "item2",
+      listId: "list1",
+    },
+    {
+      title: "edit urgency of ite",
+      itemId: "item3",
+      listId: "list1",
+    },
+    {
+      title: "delete an item",
+      itemId: "item4",
+      listId: "list1",
+    },
+    {
+      title: "add a list",
+      itemId: "item5",
+      listId: "list1",
+    },
+    {
+      title: "edit a list",
+      itemId: "item6",
+      listId: "list1",
+    },
+    {
+      title: "delete a list",
+      itemId: "item7",
+      listId: "list1",
+    },
+  ],
+};
 
-const initialState = data ? JSON.parse(data) : defaultState
+const initialState = data ? JSON.parse(data) : defaultState;
 
-export const state = new State(initialState)
+export const state = new State(initialState);
