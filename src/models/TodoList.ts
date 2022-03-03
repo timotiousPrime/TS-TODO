@@ -3,7 +3,7 @@ export interface List {
   description?: string;
   isActive: boolean;
   listId: string;
-  dateCreated: Date;
+  dateCreated: string;
 }
 
 export class TodoList {
@@ -11,7 +11,7 @@ export class TodoList {
   description: string = "";
   active: boolean = true;
   listId = `list${new Date().getTime()}`;
-  dateCreated = new Date();
+  dateCreated = String(new Date());
 
   constructor(title?: string) {
     this.title = title;

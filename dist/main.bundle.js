@@ -665,386 +665,6 @@ function todoListComponent(list) {
 
 /***/ }),
 
-/***/ "./src/eventListeners.js":
-/*!*******************************!*\
-  !*** ./src/eventListeners.js ***!
-  \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "handleEvents": () => (/* binding */ handleEvents)
-/* harmony export */ });
-/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./src/index.ts");
-/* harmony import */ var _components_ListHoverOptions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/ListHoverOptions */ "./src/components/ListHoverOptions.js");
-/* harmony import */ var _components_ItemHoverOptions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/ItemHoverOptions */ "./src/components/ItemHoverOptions.js");
-/* harmony import */ var _models_State__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./models/State */ "./src/models/State.ts");
-/* harmony import */ var _models_State__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_models_State__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _models_TodoList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./models/TodoList */ "./src/models/TodoList.js");
-/* harmony import */ var _models_TodoItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./models/TodoItem */ "./src/models/TodoItem.js");
-/* harmony import */ var _components_editItem__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/editItem */ "./src/components/editItem.js");
-/* harmony import */ var _components_editList__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/editList */ "./src/components/editList.js");
-
-
-
-
-
-
-
-
-
-function handleEvents() {
-  // Add list
-  const addListBtn = document.getElementById("list-creator-btn");
-  addListBtn.onclick = () => addNewList();
-
-  // Add item
-  const addItemBtn = document.getElementById("todo-item-submit");
-  addItemBtn.onclick = (e) => addNewItem(e);
-
-  // set active list
-  const listElements = Array.from(document.querySelectorAll(".list"));
-  listElements.forEach((list) => {
-    list.onclick = () => makeActiveList(list.id);
-  });
-
-  // item hover option
-  const itemsCards = Array.from(document.querySelectorAll(".itemCard"));
-  itemsCards.forEach((item) => {
-    item.onmouseenter = (e) => {
-      item.classList.add("itemCard-hover");
-      addItemOptions(e);
-    };
-    item.onmouseleave = () => {
-      item.classList.remove("itemCard-hover");
-      removeHoverOptions();
-    };
-  });
-
-  //  List hover options
-  const listCards = Array.from(document.querySelectorAll(".list"));
-  listCards.forEach((list) => {
-    list.onmouseenter = (e) => {
-      list.classList.add("listCard-hover");
-      addListOptions(e);
-    };
-    list.onmouseleave = () => {
-      list.classList.remove("listCard-hover");
-      removeListHoverOptions();
-    };
-  });
-}
-
-function makeActiveList(listId) {
-  console.log(listId);
-  _models_State__WEBPACK_IMPORTED_MODULE_3__.state.clearActive();
-  console.log(_models_State__WEBPACK_IMPORTED_MODULE_3__.state.activeList);
-  // state.activeList ? (state.findList(listId).isActive = true) : state.todoLists[0].isActive
-  // state.findList(listId).isActive = true || state.todoLists[0].isActive
-  _models_State__WEBPACK_IMPORTED_MODULE_3__.state.findList(listId)
-    ? (_models_State__WEBPACK_IMPORTED_MODULE_3__.state.findList(listId).isActive = true)
-    : (_models_State__WEBPACK_IMPORTED_MODULE_3__.state.todoLists[0].isActive = true);
-  // if (state.findList(listId)) {
-  //     state.findList(listId).isActive = true
-  // }
-  _models_State__WEBPACK_IMPORTED_MODULE_3__.state.save();
-
-  (0,_index__WEBPACK_IMPORTED_MODULE_0__.displayState)();
-
-  console.log("active list set");
-}
-
-function addNewList() {
-  const listInput = document.getElementById("list-creator-input").value;
-  const todoList = new _models_TodoList__WEBPACK_IMPORTED_MODULE_4__.TodoList(listInput);
-
-  _models_State__WEBPACK_IMPORTED_MODULE_3__.state.clearActive();
-  _models_State__WEBPACK_IMPORTED_MODULE_3__.state.addTodoLists = todoList;
-  _models_State__WEBPACK_IMPORTED_MODULE_3__.state.save();
-
-  (0,_index__WEBPACK_IMPORTED_MODULE_0__.displayState)();
-
-  console.log("new list added");
-}
-
-function addNewItem() {
-  const input = document.getElementById("todo-item-input").value;
-  const listId = _models_State__WEBPACK_IMPORTED_MODULE_3__.state.activeList.listId;
-  console.log(listId);
-  const item = new _models_TodoItem__WEBPACK_IMPORTED_MODULE_5__.TodoItem(listId, input);
-
-  _models_State__WEBPACK_IMPORTED_MODULE_3__.state.addItem = item;
-  _models_State__WEBPACK_IMPORTED_MODULE_3__.state.save();
-  (0,_index__WEBPACK_IMPORTED_MODULE_0__.displayState)();
-}
-
-function handleEditList(e) {
-  const list = _models_State__WEBPACK_IMPORTED_MODULE_3__.state.findList(e.target.parentElement.parentElement.id);
-  console.log("Edit list", list);
-
-  document.body.appendChild((0,_components_editList__WEBPACK_IMPORTED_MODULE_7__.listEditor)(list));
-  console.log(document.body);
-
-  const editPageOverlay = document.getElementById("page-overlay");
-  editPageOverlay.addEventListener("click", (e) => {
-    if (e.target.id === "page-overlay") {
-      editPageOverlay.remove();
-    }
-  });
-
-  const submitBtn = document.getElementById("list-submit");
-  submitBtn.onclick = (e) => {
-    e.preventDefault();
-    list.title = document.getElementById("list-title").value;
-    //     list.description = document.getElementById('list-description').value
-
-    _models_State__WEBPACK_IMPORTED_MODULE_3__.state.save();
-    (0,_index__WEBPACK_IMPORTED_MODULE_0__.displayState)();
-  };
-}
-
-function handleDeleteList(e) {
-  const listId = e.target.parentElement.parentElement.id;
-  // const list = state.activeList
-
-  _models_State__WEBPACK_IMPORTED_MODULE_3__.state.removeListItems(listId);
-  _models_State__WEBPACK_IMPORTED_MODULE_3__.state.removeList(listId);
-  makeActiveList(_models_State__WEBPACK_IMPORTED_MODULE_3__.state.todoLists[0].listId);
-  _models_State__WEBPACK_IMPORTED_MODULE_3__.state.save();
-  (0,_index__WEBPACK_IMPORTED_MODULE_0__.displayState)();
-}
-
-function handleDeleteItem(e) {
-  console.log("delete item");
-  const itemId = e.target.parentElement.parentElement.id;
-  // const list = state.activeList
-  console.log(itemId);
-  _models_State__WEBPACK_IMPORTED_MODULE_3__.state.removeItem(itemId);
-  _models_State__WEBPACK_IMPORTED_MODULE_3__.state.save();
-  (0,_index__WEBPACK_IMPORTED_MODULE_0__.displayState)();
-}
-
-function handleCompleteItem(e) {
-  const itemId = e.target.parentElement.parentElement.id;
-  const item = _models_State__WEBPACK_IMPORTED_MODULE_3__.state.findItem(itemId);
-  const DOMelement = document.getElementById(itemId);
-
-  item.isCompleted === true
-    ? (item.isCompleted = false)
-    : (item.isCompleted = true);
-  _models_State__WEBPACK_IMPORTED_MODULE_3__.state.save();
-  (0,_index__WEBPACK_IMPORTED_MODULE_0__.displayState)();
-}
-
-function handleEditItem(e) {
-  const item = _models_State__WEBPACK_IMPORTED_MODULE_3__.state.findItem(e.target.parentElement.parentElement.id);
-
-  (0,_components_editItem__WEBPACK_IMPORTED_MODULE_6__.itemEditor)(item);
-  // pageOverlay.style.display = 'block'
-
-  const pageOverlay = document.getElementById("page-overlay");
-  pageOverlay.addEventListener("click", (e) => {
-    if (e.target.id === "page-overlay") {
-      pageOverlay.remove();
-
-      console.log("clicked outside of form");
-    }
-  });
-
-  const submitBtn = document.getElementById("item-submit");
-  submitBtn.onclick = (e) => {
-    e.preventDefault();
-    item.title = document.getElementById("item-title").value;
-    item.dueDate = document.getElementById("item-due-date").value;
-    item.isUrgent = document.getElementById("item-priority").checked
-      ? true
-      : false;
-
-    console.log(item);
-
-    _models_State__WEBPACK_IMPORTED_MODULE_3__.state.save();
-    (0,_index__WEBPACK_IMPORTED_MODULE_0__.displayState)();
-  };
-
-  console.log("Edit Item");
-}
-
-function addItemOptions(e) {
-  const itemId = e.target.id;
-  const itemElement = e.target;
-  const options = (0,_components_ItemHoverOptions__WEBPACK_IMPORTED_MODULE_2__.itemCardHoverOptionsComponent)(itemId);
-
-  itemElement.appendChild(options);
-  listenForOptionClick();
-}
-
-function addListOptions(e) {
-  const listId = e.target.id;
-  const listElement = e.target;
-  const options = (0,_components_ListHoverOptions__WEBPACK_IMPORTED_MODULE_1__.listHoverOptionsComponent)(listId);
-
-  listElement.appendChild(options);
-  listenForOptionClick();
-}
-
-function removeHoverOptions() {
-  const hoverOptions = document.getElementById("itemCardHoverOptions");
-  hoverOptions.remove();
-}
-
-function removeListHoverOptions() {
-  const hoverOptions = document.getElementById("listHoverOptions");
-  hoverOptions.remove();
-}
-
-function listenForOptionClick() {
-  // const id = e.target.parentElement.id
-  const deleteBtn = document.getElementById("delete-btn");
-  const editBtn = document.getElementById("edit-btn");
-  const completeBtn = document.getElementById("complete-btn") || null;
-
-  deleteBtn.onclick = (e) => {
-    e.target.parentElement.id === "listHoverOptions"
-      ? handleDeleteList(e)
-      : handleDeleteItem(e);
-  };
-
-  editBtn.onclick = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    console.log(e.target.parentElement.id);
-    e.target.parentElement.id === "listHoverOptions"
-      ? handleEditList(e)
-      : handleEditItem(e);
-  };
-
-  if (completeBtn) completeBtn.onclick = (e) => handleCompleteItem(e);
-}
-
-
-/***/ }),
-
-/***/ "./src/models/TodoItem.js":
-/*!********************************!*\
-  !*** ./src/models/TodoItem.js ***!
-  \********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "TodoItem": () => (/* binding */ TodoItem)
-/* harmony export */ });
-class TodoItem {
-    title = ''
-    dueDate = ''
-    isUrgent = false
-    isCompleted = false
-    listId = ''
-    itemId = `item${new Date().getTime()}`
-    createdDate = new Date()
-
-    constructor(listId, title, dueDate, isUrgent) {
-        this.title = title
-        this.listId = listId
-        this.dueDate = dueDate
-        this.isUrgent = isUrgent
-    }
-
-    get title() {
-        return this._title
-    }
-
-    set title(value) {
-        this._title = value
-    }
-
-    set isCompleted(boolVal) {
-        this._isCompleted = boolVal
-    }
-
-    get isCompleted() {
-        return this._isCompleted
-    }
-
-    set id(value) {
-        this._id = value
-    }
-
-    get id() {
-        return this._id
-    }
-
-    get isUrgent(){
-        return this._isUrgent
-    }
-
-    set isUrgent(value){
-        this.isUrgent = value
-    }
-}
-
-// I can be herre in the meantime :))))
-
-
-/***/ }),
-
-/***/ "./src/models/TodoList.js":
-/*!********************************!*\
-  !*** ./src/models/TodoList.js ***!
-  \********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "TodoList": () => (/* binding */ TodoList)
-/* harmony export */ });
-class TodoList {
-    description = ''
-    title = ''
-    isActive = true
-    listId = `list${new Date().getTime()}`
-    dateCreated = new Date()
-
-    constructor(title) {
-        this.title = title
-    }
-
-    get title() {
-        return this._title
-    }
-
-    set title(value) {
-        this._title = value
-    }
-
-    get description() {
-        return this._description
-    }
-
-    set description(value) {
-        this._description = value
-    }
-
-    get listId() {
-        return this._listId
-    }
-
-    set listId(id) {
-        this._listId = id
-    }
-
-    get isActive() {
-        return this._isActive
-    }
-
-    set isActive(boolVal) {
-        this._isActive = boolVal
-    }
-}
-
-
-/***/ }),
-
 /***/ "./src/style.css":
 /*!***********************!*\
   !*** ./src/style.css ***!
@@ -1405,6 +1025,203 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/eventListeners.ts":
+/*!*******************************!*\
+  !*** ./src/eventListeners.ts ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.handleEvents = void 0;
+var index_1 = __webpack_require__(/*! ./index */ "./src/index.ts");
+var ListHoverOptions_1 = __webpack_require__(/*! ./components/ListHoverOptions */ "./src/components/ListHoverOptions.js");
+var ItemHoverOptions_1 = __webpack_require__(/*! ./components/ItemHoverOptions */ "./src/components/ItemHoverOptions.js");
+var State_1 = __webpack_require__(/*! ./models/State */ "./src/models/State.ts");
+var TodoList_1 = __webpack_require__(/*! ./models/TodoList */ "./src/models/TodoList.ts");
+var TodoItem_1 = __webpack_require__(/*! ./models/TodoItem */ "./src/models/TodoItem.ts");
+var editItem_1 = __webpack_require__(/*! ./components/editItem */ "./src/components/editItem.js");
+var editList_1 = __webpack_require__(/*! ./components/editList */ "./src/components/editList.js");
+function handleEvents() {
+    // Add list
+    var addListBtn = document.getElementById("list-creator-btn");
+    addListBtn.onclick = function () { return addNewList(); };
+    // Add item
+    var addItemBtn = document.getElementById("todo-item-submit");
+    addItemBtn.onclick = function () { return addNewItem(); };
+    // set active list
+    var listElements = Array.from(document.querySelectorAll(".list"));
+    listElements.forEach(function (list) {
+        list.onclick = function () { return makeActiveList(list.id); };
+    });
+    // item hover option
+    var itemsCards = Array.from(document.querySelectorAll(".itemCard"));
+    itemsCards.forEach(function (item) {
+        item.onmouseenter = function (e) {
+            item.classList.add("itemCard-hover");
+            addItemOptions(e);
+        };
+        item.onmouseleave = function () {
+            item.classList.remove("itemCard-hover");
+            removeHoverOptions();
+        };
+    });
+    //  List hover options
+    var listCards = Array.from(document.querySelectorAll(".list"));
+    listCards.forEach(function (list) {
+        list.onmouseenter = function (e) {
+            list.classList.add("listCard-hover");
+            addListOptions(e);
+        };
+        list.onmouseleave = function () {
+            list.classList.remove("listCard-hover");
+            removeListHoverOptions();
+        };
+    });
+}
+exports.handleEvents = handleEvents;
+function makeActiveList(listId) {
+    State_1.state.clearActive();
+    State_1.state.findList(listId)
+        ? (State_1.state.findList(listId).isActive = true)
+        : (State_1.state.todoLists[0].isActive = true);
+    State_1.state.save();
+    (0, index_1.displayState)();
+}
+function addNewList() {
+    var listInput = document.getElementById("list-creator-input").value;
+    var todoList = new TodoList_1.TodoList(listInput);
+    State_1.state.clearActive();
+    State_1.state.addTodoLists = todoList;
+    State_1.state.save();
+    (0, index_1.displayState)();
+}
+function addNewItem() {
+    var input = document.getElementById("todo-item-input").value;
+    var listId = State_1.state.activeList.listId;
+    var item = new TodoItem_1.TodoItem(listId, input);
+    State_1.state.addItem = item;
+    State_1.state.save();
+    (0, index_1.displayState)();
+}
+function handleEditList(e) {
+    var listId = e.target.parentElement.parentElement.id;
+    var list = State_1.state.findList(listId);
+    document.body.appendChild((0, editList_1.listEditor)(list));
+    var pageOverlay = document.getElementById("page-overlay");
+    pageOverlay.addEventListener("click", function (e) {
+        var target = e.target;
+        if (target.id === "page-overlay") {
+            pageOverlay.remove();
+        }
+    });
+    var submitBtn = document.getElementById("list-submit");
+    submitBtn.onclick = function (e) {
+        e.preventDefault();
+        list.title = document.getElementById("list-title").value;
+        State_1.state.save();
+        (0, index_1.displayState)();
+    };
+}
+function handleDeleteList(e) {
+    var target = e.target;
+    var listId = target.parentElement.parentElement.id;
+    State_1.state.removeListItems(listId);
+    State_1.state.removeList(listId);
+    makeActiveList(State_1.state.todoLists[0].listId);
+    State_1.state.save();
+    (0, index_1.displayState)();
+}
+function handleDeleteItem(e) {
+    var itemId = e.target.parentElement.parentElement.id;
+    State_1.state.removeItem(itemId);
+    State_1.state.save();
+    (0, index_1.displayState)();
+}
+function handleCompleteItem(e) {
+    var itemId = e.target.parentElement.parentElement.id;
+    var item = State_1.state.findItem(itemId);
+    var DOMelement = document.getElementById(itemId);
+    item.isCompleted === true
+        ? (item.isCompleted = false)
+        : (item.isCompleted = true);
+    State_1.state.save();
+    (0, index_1.displayState)();
+}
+function handleEditItem(e) {
+    var item = State_1.state.findItem(e.target.parentElement.parentElement.id);
+    (0, editItem_1.itemEditor)(item);
+    // pageOverlay.style.display = 'block'
+    var pageOverlay = document.getElementById("page-overlay");
+    pageOverlay.addEventListener("click", function (e) {
+        var target = e.target;
+        if (target.id === "page-overlay") {
+            pageOverlay.remove();
+            console.log("clicked outside of form");
+        }
+    });
+    var submitBtn = document.getElementById("item-submit");
+    submitBtn.onclick = function (e) {
+        e.preventDefault();
+        item.title = document.getElementById("item-title").value;
+        item.dueDate = document.getElementById("item-due-date").value;
+        item.isUrgent = document.getElementById("item-priority").checked
+            ? true
+            : false;
+        console.log(item);
+        State_1.state.save();
+        (0, index_1.displayState)();
+    };
+    console.log("Edit Item");
+}
+function addItemOptions(e) {
+    var itemId = e.target.id;
+    var itemElement = e.target;
+    var options = (0, ItemHoverOptions_1.itemCardHoverOptionsComponent)();
+    itemElement.appendChild(options);
+    listenForOptionClick();
+}
+function addListOptions(e) {
+    var listId = e.target.id;
+    var listElement = e.target;
+    var options = (0, ListHoverOptions_1.listHoverOptionsComponent)();
+    listElement.appendChild(options);
+    listenForOptionClick();
+}
+function removeHoverOptions() {
+    var hoverOptions = document.getElementById("itemCardHoverOptions");
+    hoverOptions.remove();
+}
+function removeListHoverOptions() {
+    var hoverOptions = document.getElementById("listHoverOptions");
+    hoverOptions.remove();
+}
+function listenForOptionClick() {
+    // const id = e.target.parentElement.id
+    var deleteBtn = document.getElementById("delete-btn");
+    var editBtn = document.getElementById("edit-btn");
+    var completeBtn = document.getElementById("complete-btn") || null;
+    deleteBtn.onclick = function (e) {
+        var target = e.target;
+        target.parentElement.id === "listHoverOptions"
+            ? handleDeleteList(e)
+            : handleDeleteItem(e);
+    };
+    editBtn.onclick = function (e) {
+        var target = e.target;
+        e.preventDefault();
+        e.stopPropagation();
+        target.parentElement.id === "listHoverOptions"
+            ? handleEditList(e)
+            : handleEditItem(e);
+    };
+    if (completeBtn)
+        completeBtn.onclick = function (e) { return handleCompleteItem(e); };
+}
+
+
+/***/ }),
+
 /***/ "./src/index.ts":
 /*!**********************!*\
   !*** ./src/index.ts ***!
@@ -1415,7 +1232,7 @@ module.exports = styleTagTransform;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.displayState = void 0;
 __webpack_require__(/*! ./style.css */ "./src/style.css");
-var eventListeners_1 = __webpack_require__(/*! ./eventListeners */ "./src/eventListeners.js");
+var eventListeners_1 = __webpack_require__(/*! ./eventListeners */ "./src/eventListeners.ts");
 var DOM_1 = __webpack_require__(/*! ./DOM */ "./src/DOM.js");
 function displayState() {
     (0, DOM_1.clearPageContents)();
@@ -1450,46 +1267,44 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.state = exports.State = void 0;
 var State = /** @class */ (function () {
     function State(initialState) {
-        this.todoLists = [];
+        this.lists = [];
         this.todoItems = [];
-        this.todoLists = __spreadArray([], initialState.todoLists, true) || [];
+        this.lists = __spreadArray([], initialState.lists, true) || [];
         this.todoItems = __spreadArray([], initialState.todoItems, true) || [];
     }
     Object.defineProperty(State.prototype, "addTodoLists", {
         set: function (list) {
-            this._todoLists = this.todoLists.push(list);
+            this.lists = __spreadArray(__spreadArray([], this.lists, true), [list], false);
         },
         enumerable: false,
         configurable: true
     });
     Object.defineProperty(State.prototype, "todoLists", {
         get: function () {
-            return this._todoLists;
+            return this.lists;
         },
         enumerable: false,
         configurable: true
     });
     State.prototype.removeList = function (listId) {
-        this.todoLists = this.todoLists.filter(function (element) { return element.listId !== listId; });
-        // this.save()
+        this.lists = this.lists.filter(function (element) { return element.listId !== listId; });
     };
     Object.defineProperty(State.prototype, "addItem", {
         set: function (item) {
-            // this._todoItems = [...this.todoItems, item]
-            this._todoItems = this.todoItems.push(item);
+            this.todoItems = __spreadArray(__spreadArray([], this.todoItems, true), [item], false);
         },
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(State.prototype, "todoItems", {
+    Object.defineProperty(State.prototype, "items", {
         get: function () {
-            return this._todoItems;
+            return this.todoItems;
         },
         enumerable: false,
         configurable: true
     });
     State.prototype.removeItem = function (itemId) {
-        this.todoItems = this.todoItems.filter(function (element) { return element.itemId !== itemId; });
+        this.todoItems = this.todoItems.filter(function (element) { return element.id !== itemId; });
     };
     State.prototype.removeListItems = function (listId) {
         this.todoItems = this.todoItems.filter(function (item) { return item.listId !== listId; });
@@ -1503,14 +1318,14 @@ var State = /** @class */ (function () {
         return this.todoLists.find(function (list) { return list.listId === listId; });
     };
     State.prototype.findItem = function (itemId) {
-        return this.todoItems.find(function (item) { return item.itemId === itemId; });
+        return this.todoItems.find(function (item) { return item.id === itemId; });
     };
     Object.defineProperty(State.prototype, "activeList", {
         get: function () {
-            return this.todoLists.find(function (list) { return list.isActive === true; }) || this.todoLists[0];
+            return (this.todoLists.find(function (list) { return list.isActive === true; }) || this.todoLists[0]);
         },
         set: function (list) {
-            var listId = list.id;
+            var listId = list.listId;
             this.todoLists.find(function (list) { return list.listId === listId; }).isActive = true;
         },
         enumerable: false,
@@ -1518,62 +1333,189 @@ var State = /** @class */ (function () {
     });
     State.prototype.save = function () {
         var stateJSON = JSON.stringify(this);
-        localStorage.setItem('myAwesomeTodoState', stateJSON);
+        localStorage.setItem("myAwesomeTodoState", stateJSON);
     };
     return State;
 }());
 exports.State = State;
 // const initialState = JSON.parse(localStorage.getItem('myAwesomeTodoState'));
-var data = localStorage.getItem('myAwesomeTodoState');
+var data = localStorage.getItem("myAwesomeTodoState");
 var defaultState = {
     todoLists: [
         {
-            title: 'Default List',
-            description: 'A list to help you get started',
+            title: "Default List",
+            description: "A list to help you get started",
             isActive: true,
-            listId: 'list1',
+            listId: "list1",
         },
     ],
     todoItems: [
         {
-            title: 'add a todo item',
-            itemId: 'item1',
-            listId: 'list1',
+            title: "add a todo item",
+            itemId: "item1",
+            listId: "list1",
         },
         {
-            title: 'edit an item',
-            itemId: 'item2',
-            listId: 'list1',
+            title: "edit an item",
+            itemId: "item2",
+            listId: "list1",
         },
         {
-            title: 'edit urgency of ite',
-            itemId: 'item3',
-            listId: 'list1',
+            title: "edit urgency of ite",
+            itemId: "item3",
+            listId: "list1",
         },
         {
-            title: 'delete an item',
-            itemId: 'item4',
-            listId: 'list1',
+            title: "delete an item",
+            itemId: "item4",
+            listId: "list1",
         },
         {
-            title: 'add a list',
-            itemId: 'item5',
-            listId: 'list1',
+            title: "add a list",
+            itemId: "item5",
+            listId: "list1",
         },
         {
-            title: 'edit a list',
-            itemId: 'item6',
-            listId: 'list1',
+            title: "edit a list",
+            itemId: "item6",
+            listId: "list1",
         },
         {
-            title: 'delete a list',
-            itemId: 'item7',
-            listId: 'list1',
+            title: "delete a list",
+            itemId: "item7",
+            listId: "list1",
         },
     ],
 };
 var initialState = data ? JSON.parse(data) : defaultState;
 exports.state = new State(initialState);
+
+
+/***/ }),
+
+/***/ "./src/models/TodoItem.ts":
+/*!********************************!*\
+  !*** ./src/models/TodoItem.ts ***!
+  \********************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.TodoItem = void 0;
+var TodoItem = /** @class */ (function () {
+    function TodoItem(listId, title, dueDate, isUrgent) {
+        this.title = "";
+        this.urgent = false;
+        this.completed = false;
+        this.itemId = "item".concat(new Date().getTime());
+        this.createdDate = String(new Date());
+        this.title = title;
+        this.listId = listId;
+        this.dueDate = dueDate;
+        this.urgent = isUrgent;
+    }
+    Object.defineProperty(TodoItem.prototype, "itemTitle", {
+        get: function () {
+            return this.title;
+        },
+        set: function (value) {
+            this.title = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(TodoItem.prototype, "isCompleted", {
+        get: function () {
+            return this.completed;
+        },
+        set: function (value) {
+            this.completed = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(TodoItem.prototype, "id", {
+        get: function () {
+            return this.itemId;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(TodoItem.prototype, "isUrgent", {
+        get: function () {
+            return this.urgent;
+        },
+        set: function (value) {
+            this.urgent = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    return TodoItem;
+}());
+exports.TodoItem = TodoItem;
+
+
+/***/ }),
+
+/***/ "./src/models/TodoList.ts":
+/*!********************************!*\
+  !*** ./src/models/TodoList.ts ***!
+  \********************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.TodoList = void 0;
+var TodoList = /** @class */ (function () {
+    function TodoList(title) {
+        this.title = "";
+        this.description = "";
+        this.active = true;
+        this.listId = "list".concat(new Date().getTime());
+        this.dateCreated = String(new Date());
+        this.title = title;
+    }
+    Object.defineProperty(TodoList.prototype, "listTitle", {
+        get: function () {
+            return this.title;
+        },
+        set: function (value) {
+            this.title = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(TodoList.prototype, "listDescription", {
+        get: function () {
+            return this.description;
+        },
+        set: function (value) {
+            this.description = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(TodoList.prototype, "id", {
+        get: function () {
+            return this.listId;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(TodoList.prototype, "isActive", {
+        get: function () {
+            return this.isActive;
+        },
+        set: function (boolVal) {
+            this.isActive = boolVal;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    return TodoList;
+}());
+exports.TodoList = TodoList;
 
 
 /***/ })

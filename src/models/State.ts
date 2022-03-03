@@ -1,7 +1,7 @@
 import { Item } from "./TodoItem";
 import { List } from "./TodoList";
 
-export interface State {
+export interface iState extends State {
   lists: List[];
   todoItems: Item[];
 }
@@ -10,14 +10,13 @@ export class State {
   lists: List[] = [];
   todoItems: Item[] = [];
 
-  constructor(initialState: State) {
+  constructor(initialState: iState) {
     this.lists = [...initialState.lists] || [];
-    this.todoItems = [...initialState.items] || [];
+    this.todoItems = [...initialState.todoItems] || [];
   }
 
   set addTodoLists(list: List) {
     this.lists = [...this.lists, list];
-    // this.lists = this.lists.push(list);
   }
 
   get todoLists(): List[] {
@@ -126,6 +125,6 @@ const defaultState = {
   ],
 };
 
-const initialState = data ? JSON.parse(data) : defaultState;
+const initialState: iState = data ? JSON.parse(data) : defaultState;
 
 export const state = new State(initialState);

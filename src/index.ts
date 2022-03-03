@@ -7,7 +7,7 @@ import {
   displayActiveList,
 } from "./DOM";
 
-export function displayState(): void {
+export function displayState(): void{
   clearPageContents();
   displayPageLayout();
   displayLists();

@@ -7,7 +7,7 @@ import { TodoItem } from "./models/TodoItem";
 import { itemEditor } from "./components/editItem";
 import { listEditor } from "./components/editList";
 
-export function handleEvents() {
+export function handleEvents(): void {
   // Add list
   const addListBtn = document.getElementById("list-creator-btn");
   addListBtn.onclick = () => addNewList();
@@ -66,7 +66,7 @@ function makeActiveList(listId: string): void {
 }
 
 function addNewList() {
-  const listInput: string = document.getElementById("list-creator-input").value;
+  const listInput: string = (document.getElementById("list-creator-input") as HTMLInputElement).value;
   const todoList = new TodoList(listInput);
 
   state.clearActive();
@@ -77,7 +77,7 @@ function addNewList() {
 }
 
 function addNewItem() {
-  const input = document.getElementById("todo-item-input").value;
+  const input = (document.getElementById("todo-item-input") as HTMLInputElement).value;
   const listId = state.activeList.listId;
   const item = new TodoItem(listId, input);
 
@@ -87,13 +87,15 @@ function addNewItem() {
 }
 
 function handleEditList(e) {
-  const list = state.findList(e.target.parentElement.parentElement.id);
+  const listId: string = e.target.parentElement.parentElement.id;
+  const list = state.findList(listId);
 
   document.body.appendChild(listEditor(list));
 
   const pageOverlay = document.getElementById("page-overlay");
   pageOverlay.addEventListener("click", (e) => {
-    if (e.target.id === "page-overlay") {
+    const target = e.target as HTMLElement;
+    if (target.id === "page-overlay") {
       pageOverlay.remove();
     }
   });
@@ -101,15 +103,16 @@ function handleEditList(e) {
   const submitBtn = document.getElementById("list-submit");
   submitBtn.onclick = (e) => {
     e.preventDefault();
-    list.title = document.getElementById("list-title").value;
+    list.title = (document.getElementById("list-title") as HTMLTextAreaElement).value;
 
     state.save();
     displayState();
   };
 }
 
-function handleDeleteList(e) {
-  const listId = e.target.parentElement.parentElement.id;
+function handleDeleteList(e: Event) {
+  const target = e.target as HTMLElement;
+  const listId = target.parentElement.parentElement.id;
 
   state.removeListItems(listId);
   state.removeList(listId);
@@ -146,7 +149,8 @@ function handleEditItem(e) {
 
   const pageOverlay = document.getElementById("page-overlay");
   pageOverlay.addEventListener("click", (e) => {
-    if (e.target.id === "page-overlay") {
+    const target = e.target as HTMLElement;
+    if (target.id === "page-overlay") {
       pageOverlay.remove();
 
       console.log("clicked outside of form");
@@ -156,9 +160,9 @@ function handleEditItem(e) {
   const submitBtn = document.getElementById("item-submit");
   submitBtn.onclick = (e) => {
     e.preventDefault();
-    item.title = document.getElementById("item-title").value;
-    item.dueDate = document.getElementById("item-due-date").value;
-    item.isUrgent = document.getElementById("item-priority").checked
+    item.title = (document.getElementById("item-title") as HTMLInputElement).value;
+    item.dueDate = (document.getElementById("item-due-date") as HTMLInputElement).value;
+    item.isUrgent = (document.getElementById("item-priority") as HTMLInputElement).checked
       ? true
       : false;
 
@@ -174,7 +178,7 @@ function handleEditItem(e) {
 function addItemOptions(e) {
   const itemId: string = e.target.id;
   const itemElement: HTMLElement = e.target;
-  const options = itemCardHoverOptionsComponent(itemId);
+  const options = itemCardHoverOptionsComponent();
 
   itemElement.appendChild(options);
   listenForOptionClick();
@@ -183,7 +187,7 @@ function addItemOptions(e) {
 function addListOptions(e) {
   const listId = e.target.id;
   const listElement = e.target;
-  const options = listHoverOptionsComponent(listId);
+  const options = listHoverOptionsComponent();
 
   listElement.appendChild(options);
   listenForOptionClick();
@@ -206,16 +210,18 @@ function listenForOptionClick() {
   const completeBtn = document.getElementById("complete-btn") || null;
 
   deleteBtn.onclick = (e) => {
-    e.target.parentElement.id === "listHoverOptions"
+    const target = e.target as Node;
+
+    target.parentElement.id === "listHoverOptions"
       ? handleDeleteList(e)
       : handleDeleteItem(e);
   };
 
   editBtn.onclick = (e) => {
+    const target = e.target as Node;
     e.preventDefault();
     e.stopPropagation();
-    console.log(e.target.parentElement.id);
-    e.target.parentElement.id === "listHoverOptions"
+    target.parentElement.id === "listHoverOptions"
       ? handleEditList(e)
       : handleEditItem(e);
   };

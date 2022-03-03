@@ -4,23 +4,23 @@ export interface Item {
   id: string;
   isUrgent: boolean;
   isCompleted: boolean;
-  dueDate?: Date;
-  createdDate: Date;
+  dueDate?: string;
+  createdDate: string;
 }
 
 export class TodoItem {
   title: string = "";
-  dueDate: Date;
+  dueDate: string;
   urgent: boolean = false;
   private completed: boolean = false;
   readonly listId: string;
   readonly itemId = `item${new Date().getTime()}`;
-  createdDate = new Date();
+  createdDate = String(new Date());
 
   constructor(
     listId: string,
     title?: string,
-    dueDate?: Date,
+    dueDate?: string,
     isUrgent?: boolean
   ) {
     this.title = title;
